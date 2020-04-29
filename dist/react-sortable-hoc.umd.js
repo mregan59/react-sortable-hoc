@@ -1916,6 +1916,7 @@
             value: function componentDidMount() {
               var _this2 = this;
 
+              console.log('test 2');
               var useWindowAsScrollContainer = this.props
                 .useWindowAsScrollContainer;
               var container = this.getContainer();
