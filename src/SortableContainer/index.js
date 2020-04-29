@@ -71,7 +71,6 @@ export default function sortableContainer(
     }
 
     componentDidMount() {
-      console.log('I AM NEW');
       const {useWindowAsScrollContainer} = this.props;
       const container = this.getContainer();
 
@@ -92,7 +91,7 @@ export default function sortableContainer(
 
         this.scrollContainer = useWindowAsScrollContainer
           ? this.document.scrollingElement || this.document.documentElement
-          : this.container;
+          : getScrollingParent(this.container) || this.container;
 
         this.autoScroller = new AutoScroller(
           this.scrollContainer,
@@ -263,7 +262,7 @@ export default function sortableContainer(
         const {index} = node.sortableInfo;
         const margin = getElementMargin(node);
         const gridGap = getContainerGridGap(this.container);
-        const containerBoundingRect = this.scrollContainer.getBoundingClientRect();
+        const containerBoundingRect = this.container.getBoundingClientRect();
         const dimensions = getHelperDimensions({index, node, collection});
 
         this.node = node;
