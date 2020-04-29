@@ -71,6 +71,7 @@ export default function sortableContainer(
     }
 
     componentDidMount() {
+      console.log('test 2');
       const {useWindowAsScrollContainer} = this.props;
       const container = this.getContainer();
 
